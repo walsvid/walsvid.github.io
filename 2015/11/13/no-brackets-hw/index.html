@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="最近，工程组的学长建议我们都去做一下凝聚的题目，开阔开阔眼界。虽然我对安全方向不是非常感冒，但是有一道汇编与底层相关的题目给我留下了很深的印象。">
+<meta name="keywords" content="C,汇编">
+<meta property="og:type" content="article">
+<meta property="og:title" content="不用特殊字符输出Helloworld">
+<meta property="og:url" content="http://walsvid.github.io/2015/11/13/no-brackets-hw/index.html">
+<meta property="og:site_name" content="Walsvid&#39;s Blog">
+<meta property="og:description" content="最近，工程组的学长建议我们都去做一下凝聚的题目，开阔开阔眼界。虽然我对安全方向不是非常感冒，但是有一道汇编与底层相关的题目给我留下了很深的印象。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-03-15T05:53:06.394Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="不用特殊字符输出Helloworld">
+<meta name="twitter:description" content="最近，工程组的学长建议我们都去做一下凝聚的题目，开阔开阔眼界。虽然我对安全方向不是非常感冒，但是有一道汇编与底层相关的题目给我留下了很深的印象。">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>不用特殊字符输出Helloworld</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/walsvid">Projects</a></li>
+         
+          <li><a href="/atom.xml">RSS</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2016/05/14/latex-mac/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://walsvid.github.io/2015/11/13/no-brackets-hw/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://walsvid.github.io/2015/11/13/no-brackets-hw/&text=不用特殊字符输出Helloworld"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://walsvid.github.io/2015/11/13/no-brackets-hw/&title=不用特殊字符输出Helloworld"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://walsvid.github.io/2015/11/13/no-brackets-hw/&is_video=false&description=不用特殊字符输出Helloworld"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=不用特殊字符输出Helloworld&body=Check out this article: http://walsvid.github.io/2015/11/13/no-brackets-hw/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://walsvid.github.io/2015/11/13/no-brackets-hw/&title=不用特殊字符输出Helloworld"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://walsvid.github.io/2015/11/13/no-brackets-hw/&title=不用特殊字符输出Helloworld"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://walsvid.github.io/2015/11/13/no-brackets-hw/&title=不用特殊字符输出Helloworld"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://walsvid.github.io/2015/11/13/no-brackets-hw/&title=不用特殊字符输出Helloworld"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://walsvid.github.io/2015/11/13/no-brackets-hw/&name=不用特殊字符输出Helloworld&description=&lt;p&gt;最近，工程组的学长建议我们都去做一下凝聚的题目，开阔开阔眼界。虽然我对安全方向不是非常感冒，但是有一道汇编与底层相关的题目给我留下了很深的印象。"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-不加限制的输出Hello-World"><span class="toc-number">1.</span> <span class="toc-text">0. 不加限制的输出Hello World!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-不使用引号-‘’-“”-输出Hello-World"><span class="toc-number">2.</span> <span class="toc-text">1. 不使用引号(‘’ “”)输出Hello, World!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-不使用分号-输出Hello-World"><span class="toc-number">3.</span> <span class="toc-text">2. 不使用分号(;)输出Hello, World!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-不使用井号-输出Hello-World"><span class="toc-number">4.</span> <span class="toc-text">3. 不使用井号(#)输出Hello, World!</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用三字符-Trigraphs"><span class="toc-number">4.1.</span> <span class="toc-text">使用三字符(Trigraphs)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用双字符-Digraphs"><span class="toc-number">4.2.</span> <span class="toc-text">使用双字符(Digraphs)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用GCC的builtin函数"><span class="toc-number">4.3.</span> <span class="toc-text">使用GCC的builtin函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用C语言运行时会查找这些函数的声明的特性直接自己声明"><span class="toc-number">4.4.</span> <span class="toc-text">利用C语言运行时会查找这些函数的声明的特性直接自己声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内联汇编"><span class="toc-number">4.5.</span> <span class="toc-text">内联汇编</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-不使用不可见字符输出Hello-World"><span class="toc-number">5.</span> <span class="toc-text">4. 不使用不可见字符输出Hello, World!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-不使用括号-lt-gt-输出Hello-World"><span class="toc-number">6.</span> <span class="toc-text">5. 不使用括号( {}[]()&lt;&gt; )输出Hello, World!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">7.</span> <span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        不用特殊字符输出Helloworld
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Walsvid's Blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2015-11-13T11:11:10.000Z" itemprop="datePublished">2015-11-13</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/C/">C</a>, <a class="tag-link" href="/tags/汇编/">汇编</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>最近，工程组的学长建议我们都去做一下凝聚的题目，开阔开阔眼界。虽然我对安全方向不是非常感冒，但是有一道汇编与底层相关的题目给我留下了很深的印象。<a id="more"></a></p>
+<h2 id="0-不加限制的输出Hello-World"><a href="#0-不加限制的输出Hello-World" class="headerlink" title="0. 不加限制的输出Hello World!"></a>0. 不加限制的输出Hello World!</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello World!"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>或者用<code>puts</code><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Hello World!"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>没什么好说的，很容易就能写出来。</p>
+<h2 id="1-不使用引号-‘’-“”-输出Hello-World"><a href="#1-不使用引号-‘’-“”-输出Hello-World" class="headerlink" title="1. 不使用引号(‘’ “”)输出Hello, World!"></a>1. 不使用引号(‘’ “”)输出Hello, World!</h2><p>这道题，想到的就是替换字符串的内容为ASCII码，还算简单.<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">char</span> hello[] = &#123;</span><br><span class="line">    <span class="number">0x48</span>, <span class="number">0x65</span>, <span class="number">0x6c</span>, <span class="number">0x6c</span>, <span class="number">0x6f</span>, <span class="number">0x2c</span>, <span class="number">0x20</span>,   <span class="comment">//Hello,.</span></span><br><span class="line">    <span class="number">0x57</span>, <span class="number">0x6f</span>, <span class="number">0x72</span>, <span class="number">0x6c</span>, <span class="number">0x64</span>, <span class="number">0x21</span>, <span class="number">0x00</span>    <span class="comment">//World!</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">puts</span>(hello);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-不使用分号-输出Hello-World"><a href="#2-不使用分号-输出Hello-World" class="headerlink" title="2. 不使用分号(;)输出Hello, World!"></a>2. 不使用分号(;)输出Hello, World!</h2><p>这个就更简单了，利用puts的返回值，将语句嵌套在if块中即可<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">puts</span>(<span class="string">"Hello, World!"</span>)) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-不使用井号-输出Hello-World"><a href="#3-不使用井号-输出Hello-World" class="headerlink" title="3. 不使用井号(#)输出Hello, World!"></a>3. 不使用井号(#)输出Hello, World!</h2><h3 id="使用三字符-Trigraphs"><a href="#使用三字符-Trigraphs" class="headerlink" title="使用三字符(Trigraphs)"></a>使用三字符(Trigraphs)</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">??=include &lt;stdio.h&gt;</span><br><span class="line"><span class="keyword">int</span> main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Hello, World!"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>gcc，clang都需要添加编译选项<code>-trigraphs</code></p>
+<h3 id="使用双字符-Digraphs"><a href="#使用双字符-Digraphs" class="headerlink" title="使用双字符(Digraphs)"></a>使用双字符(Digraphs)</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">%:include &lt;stdio.h&gt;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Hello, World!"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>根据GCC的手册，这个Digraph是90年提出的。<br>虽然不用添加编译选项，但是需要支持<code>-std=iso9899:199409</code>标准。</p>
+<h3 id="使用GCC的builtin函数"><a href="#使用GCC的builtin函数" class="headerlink" title="使用GCC的builtin函数"></a>使用GCC的builtin函数</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  __builtin_puts(<span class="string">"Hello, World!"</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="利用C语言运行时会查找这些函数的声明的特性直接自己声明"><a href="#利用C语言运行时会查找这些函数的声明的特性直接自己声明" class="headerlink" title="利用C语言运行时会查找这些函数的声明的特性直接自己声明"></a>利用C语言运行时会查找这些函数的声明的特性直接自己声明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">extern int puts(const char *__s);</span><br><span class="line">int main() &#123;</span><br><span class="line">  puts(&quot;Hello, World!&quot;);</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="内联汇编"><a href="#内联汇编" class="headerlink" title="内联汇编"></a>内联汇编</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> hello[] = <span class="string">"Hello, World!"</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">asm</span>(<span class="string">"movl   $hello, %edi"</span>);</span><br><span class="line">    <span class="keyword">asm</span>(<span class="string">"call   puts"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以直接call puts<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> hello[] = <span class="string">"Hello, World!"</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">asm</span>(<span class="string">"mov    $0x1, %rax"</span>);</span><br><span class="line">    <span class="keyword">asm</span>(<span class="string">"mov    $0x1, %rdi"</span>);</span><br><span class="line">    <span class="keyword">asm</span>(<span class="string">"mov    $hello,  %rsi"</span>);</span><br><span class="line">    <span class="keyword">asm</span>(<span class="string">"mov    $0xd, %rdx"</span>);</span><br><span class="line">    <span class="keyword">asm</span>(<span class="string">"syscall"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以用系统调用，1号系统调用就是<code>sys_write</code>，<code>sys_write</code>三个参数：写入的文件，字符串地址，字符串长度。</p>
+<h2 id="4-不使用不可见字符输出Hello-World"><a href="#4-不使用不可见字符输出Hello-World" class="headerlink" title="4. 不使用不可见字符输出Hello, World!"></a>4. 不使用不可见字符输出Hello, World!</h2><p>这题的思路在SQL注入中经常用到，就是用多行注释来替代空格分隔关键字。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span><span class="comment">/**/</span>hw[]=&#123;<span class="number">0x48</span>,<span class="number">0x65</span>,<span class="number">0x6c</span>,<span class="number">0x6c</span>,<span class="number">0x6f</span>,<span class="number">0x2c</span>,<span class="number">0x20</span>,<span class="number">0x57</span>,<span class="number">0x6f</span>,<span class="number">0x72</span>,<span class="number">0x6c</span>,<span class="number">0x64</span>,<span class="number">0x21</span>,<span class="number">0x00</span>&#125;;</span><br><span class="line"><span class="number">2</span> <span class="keyword">extern</span><span class="comment">/**/</span><span class="keyword">int</span><span class="comment">/**/</span><span class="built_in">puts</span>(<span class="keyword">const</span><span class="comment">/**/</span><span class="keyword">char</span>*__s);<span class="keyword">int</span><span class="comment">/**/</span>main()&#123;<span class="built_in">puts</span>(hw);<span class="keyword">return</span>(<span class="number">0</span>);&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-不使用括号-lt-gt-输出Hello-World"><a href="#5-不使用括号-lt-gt-输出Hello-World" class="headerlink" title="5. 不使用括号( {}[]()&lt;&gt; )输出Hello, World!"></a>5. 不使用括号( {}[]()&lt;&gt; )输出Hello, World!</h2><p>其实这个题目的解决办法就在之前的内联汇编的代码中，不过我在Linux64位测试的时候直接用上面的汇编代码可能会出现<code>segmentation fault</code>以及print的字符串地址不对的问题。所以我进行了改进。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">asm</span>(<span class="string">"movl $1, %eax"</span>);</span><br><span class="line">      <span class="keyword">asm</span>(<span class="string">"movl $1, %ebx"</span>);</span><br><span class="line">      <span class="keyword">asm</span>(<span class="string">"leal 16(%eip), %esi"</span>);</span><br><span class="line">      <span class="keyword">asm</span>(<span class="string">"movl $13, %edx"</span>);</span><br><span class="line">      <span class="keyword">asm</span>(<span class="string">"syscall"</span>);</span><br><span class="line">      <span class="keyword">asm</span>(<span class="string">"movl $60,%eax"</span>);</span><br><span class="line">      <span class="keyword">asm</span>(<span class="string">"xorl %ebx,%ebx"</span>);</span><br><span class="line">      <span class="keyword">asm</span>(<span class="string">"syscall"</span>);</span><br><span class="line">      <span class="keyword">asm</span>(<span class="string">"message: .ascii \"Hello World!\\0\""</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>把上面的代码编译之后用gdb进行反汇编，然后选择查看内存，可以选择16进制或者10进制查看，然后将main中的内容转换为ShellCode就行了。其实说难并不难，但是有些弯路需要自己搞清楚。<br>下面提供两个版本：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> main = <span class="number">0x55</span>, main1 = <span class="number">0x48</span>, main2 = <span class="number">0x89</span>, main3 = <span class="number">0xe5</span>, main4 = <span class="number">0xb8</span>,</span><br><span class="line">           main5 = <span class="number">0x01</span>, main6 = <span class="number">0x00</span>, main7 = <span class="number">0x00</span>, main8 = <span class="number">0x00</span>, main9 = <span class="number">0xbb</span>,</span><br><span class="line">           main10 = <span class="number">0x01</span>, main11 = <span class="number">0x00</span>, main12 = <span class="number">0x00</span>, main13 = <span class="number">0x00</span>,</span><br><span class="line">           main14 = <span class="number">0x67</span>, main15 = <span class="number">0x8d</span>, main16 = <span class="number">0x35</span>, main17 = <span class="number">0x10</span>,</span><br><span class="line">           main18 = <span class="number">0x00</span>, main19 = <span class="number">0x00</span>, main20 = <span class="number">0x00</span>, main21 = <span class="number">0xba</span>,</span><br><span class="line">           main22 = <span class="number">0x0d</span>, main23 = <span class="number">0x00</span>, main24 = <span class="number">0x00</span>, main25 = <span class="number">0x00</span>,</span><br><span class="line">           main26 = <span class="number">0x0f</span>, main27 = <span class="number">0x05</span>, main28 = <span class="number">0xb8</span>, main29 = <span class="number">0x3c</span>,</span><br><span class="line">           main30 = <span class="number">0x00</span>, main31 = <span class="number">0x00</span>, main32 = <span class="number">0x00</span>, main33 = <span class="number">0x31</span>,</span><br><span class="line">           main34 = <span class="number">0xdb</span>, main35 = <span class="number">0x0f</span>, main36 = <span class="number">0x05</span>, main37 = <span class="number">0x48</span>,</span><br><span class="line">           main38 = <span class="number">0x65</span>, main39 = <span class="number">0x6c</span>, main40 = <span class="number">0x6c</span>, main41 = <span class="number">0x6f</span>,</span><br><span class="line">           main42 = <span class="number">0x20</span>, main43 = <span class="number">0x57</span>, main44 = <span class="number">0x6f</span>, main45 = <span class="number">0x72</span>,</span><br><span class="line">           main46 = <span class="number">0x6c</span>, main47 = <span class="number">0x64</span>, main48 = <span class="number">0x21</span>, main49 = <span class="number">0x0a</span>,</span><br><span class="line">           main50 = <span class="number">0x5d</span>;</span><br></pre></td></tr></table></figure></p>
+<p>16进制使用<code>const char</code>的版本，注意用const让代码在<code>.rodata</code>段中，防止0x00被优化没了（我就被坑了好久）。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> main = <span class="number">-443987883</span>, main1 = <span class="number">440</span>, main2 = <span class="number">113408</span>, main3 = <span class="number">-1922629632</span>,</span><br><span class="line">          main4 = <span class="number">4149</span>, main5 = <span class="number">899584</span>, main6 = <span class="number">84869120</span>, main7 = <span class="number">15544</span>,</span><br><span class="line">          main8 = <span class="number">266023168</span>, main9 = <span class="number">1818576901</span>, main10 = <span class="number">1461743468</span>,</span><br><span class="line">          main11 = <span class="number">1684828783</span>, main12 = <span class="number">-1017312735</span>;</span><br></pre></td></tr></table></figure></p>
+<p>用<code>int</code>的版本。<br>但是我觉得这个东西肯定是跟架构有关系，很难写出平台无关代码了。<br>所以标明一下我的测试环境:<code>Debian 64位</code><br>还可以看一下这篇博客<sup><a href="#fn_1" id="reffn_1">1</a></sup></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个题目真的非常有意思，虽然有好多东西算是奇技淫巧吧，不过确实能够学到底层的很多东西。</p>
+<blockquote id="fn_1">
+<sup>1</sup>. <a href="https://jroweboy.github.io/c/asm/2015/01/26/when-is-main-not-a-function.html?utm_source=com.todoist&amp;utm_medium=social" target="_blank" rel="noopener">https://jroweboy.github.io/c/asm/2015/01/26/when-is-main-not-a-function.html?utm_source=com.todoist&amp;utm_medium=social</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/walsvid">Projects</a></li>
+         
+          <li><a href="/atom.xml">RSS</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-不加限制的输出Hello-World"><span class="toc-number">1.</span> <span class="toc-text">0. 不加限制的输出Hello World!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-不使用引号-‘’-“”-输出Hello-World"><span class="toc-number">2.</span> <span class="toc-text">1. 不使用引号(‘’ “”)输出Hello, World!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-不使用分号-输出Hello-World"><span class="toc-number">3.</span> <span class="toc-text">2. 不使用分号(;)输出Hello, World!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-不使用井号-输出Hello-World"><span class="toc-number">4.</span> <span class="toc-text">3. 不使用井号(#)输出Hello, World!</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用三字符-Trigraphs"><span class="toc-number">4.1.</span> <span class="toc-text">使用三字符(Trigraphs)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用双字符-Digraphs"><span class="toc-number">4.2.</span> <span class="toc-text">使用双字符(Digraphs)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用GCC的builtin函数"><span class="toc-number">4.3.</span> <span class="toc-text">使用GCC的builtin函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用C语言运行时会查找这些函数的声明的特性直接自己声明"><span class="toc-number">4.4.</span> <span class="toc-text">利用C语言运行时会查找这些函数的声明的特性直接自己声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内联汇编"><span class="toc-number">4.5.</span> <span class="toc-text">内联汇编</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-不使用不可见字符输出Hello-World"><span class="toc-number">5.</span> <span class="toc-text">4. 不使用不可见字符输出Hello, World!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-不使用括号-lt-gt-输出Hello-World"><span class="toc-number">6.</span> <span class="toc-text">5. 不使用括号( {}[]()&lt;&gt; )输出Hello, World!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">7.</span> <span class="toc-text">总结</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://walsvid.github.io/2015/11/13/no-brackets-hw/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://walsvid.github.io/2015/11/13/no-brackets-hw/&text=不用特殊字符输出Helloworld"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://walsvid.github.io/2015/11/13/no-brackets-hw/&title=不用特殊字符输出Helloworld"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://walsvid.github.io/2015/11/13/no-brackets-hw/&is_video=false&description=不用特殊字符输出Helloworld"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=不用特殊字符输出Helloworld&body=Check out this article: http://walsvid.github.io/2015/11/13/no-brackets-hw/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://walsvid.github.io/2015/11/13/no-brackets-hw/&title=不用特殊字符输出Helloworld"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://walsvid.github.io/2015/11/13/no-brackets-hw/&title=不用特殊字符输出Helloworld"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://walsvid.github.io/2015/11/13/no-brackets-hw/&title=不用特殊字符输出Helloworld"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://walsvid.github.io/2015/11/13/no-brackets-hw/&title=不用特殊字符输出Helloworld"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://walsvid.github.io/2015/11/13/no-brackets-hw/&name=不用特殊字符输出Helloworld&description=&lt;p&gt;最近，工程组的学长建议我们都去做一下凝聚的题目，开阔开阔眼界。虽然我对安全方向不是非常感冒，但是有一道汇编与底层相关的题目给我留下了很深的印象。"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 Walsvid
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/walsvid">Projects</a></li>
+         
+          <li><a href="/atom.xml">RSS</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+

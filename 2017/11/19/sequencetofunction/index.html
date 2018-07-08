@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="问题的起源是知乎上有人提了一个问题1「除了靠猜和不优雅的构造，如何函数化特殊数列？」题主提出的数列是：1,1,1,0,-1,0,1,0,-1,0…">
+<meta name="keywords" content="数学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="无穷序列对应函数的一种寻找方法">
+<meta property="og:url" content="http://walsvid.github.io/2017/11/19/sequencetofunction/index.html">
+<meta property="og:site_name" content="Walsvid&#39;s Blog">
+<meta property="og:description" content="问题的起源是知乎上有人提了一个问题1「除了靠猜和不优雅的构造，如何函数化特殊数列？」题主提出的数列是：1,1,1,0,-1,0,1,0,-1,0…">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://walsvid.github.io/2017/11/19/sequencetofunction/1.png">
+<meta property="og:image" content="http://walsvid.github.io/2017/11/19/sequencetofunction/2.png">
+<meta property="og:image" content="http://walsvid.github.io/2017/11/19/sequencetofunction/3.png">
+<meta property="og:image" content="http://walsvid.github.io/2017/11/19/sequencetofunction/4.png">
+<meta property="og:updated_time" content="2018-07-08T06:31:34.505Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="无穷序列对应函数的一种寻找方法">
+<meta name="twitter:description" content="问题的起源是知乎上有人提了一个问题1「除了靠猜和不优雅的构造，如何函数化特殊数列？」题主提出的数列是：1,1,1,0,-1,0,1,0,-1,0…">
+<meta name="twitter:image" content="http://walsvid.github.io/2017/11/19/sequencetofunction/1.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>无穷序列对应函数的一种寻找方法</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css'><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/walsvid">Projects</a></li>
+         
+          <li><a href="/atom.xml">RSS</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/03/15/tensorflow-variable-scope/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2017/03/25/profiletensorflow/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://walsvid.github.io/2017/11/19/sequencetofunction/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://walsvid.github.io/2017/11/19/sequencetofunction/&text=无穷序列对应函数的一种寻找方法"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://walsvid.github.io/2017/11/19/sequencetofunction/&title=无穷序列对应函数的一种寻找方法"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://walsvid.github.io/2017/11/19/sequencetofunction/&is_video=false&description=无穷序列对应函数的一种寻找方法"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=无穷序列对应函数的一种寻找方法&body=Check out this article: http://walsvid.github.io/2017/11/19/sequencetofunction/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://walsvid.github.io/2017/11/19/sequencetofunction/&title=无穷序列对应函数的一种寻找方法"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://walsvid.github.io/2017/11/19/sequencetofunction/&title=无穷序列对应函数的一种寻找方法"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://walsvid.github.io/2017/11/19/sequencetofunction/&title=无穷序列对应函数的一种寻找方法"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://walsvid.github.io/2017/11/19/sequencetofunction/&title=无穷序列对应函数的一种寻找方法"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://walsvid.github.io/2017/11/19/sequencetofunction/&name=无穷序列对应函数的一种寻找方法&description=&lt;p&gt;问题的起源是知乎上有人提了一个问题&lt;sup&gt;&lt;a href=&#34;#fn_1&#34; id=&#34;reffn_1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;「除了靠猜和不优雅的构造，如何函数化特殊数列？」题主提出的数列是：&lt;code&gt;1,1,1,0,-1,0,1,0,-1,0…&lt;/code&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-number">1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解法"><span class="toc-number">2.</span> <span class="toc-text">解法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思考"><span class="toc-number">3.</span> <span class="toc-text">思考</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        无穷序列对应函数的一种寻找方法
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Walsvid's Blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-11-19T11:32:01.000Z" itemprop="datePublished">2017-11-19</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/数学/">数学</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>问题的起源是知乎上有人提了一个问题<sup><a href="#fn_1" id="reffn_1">1</a></sup>「除了靠猜和不优雅的构造，如何函数化特殊数列？」题主提出的数列是：<code>1,1,1,0,-1,0,1,0,-1,0…</code><a id="more"></a>对于这个无穷的序列，插值的方法可以说不是非常有效，那么应该如何解决这个问题呢？</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>对于这一类问题其实有比较机械的解法：<br>首先把数列看做是对应生成函数<sup><a href="#fn_2" id="reffn_2">2</a></sup>（Generating function）的系数（coefficient），然后把生成函数看做是所求函数在频域上的表达式，转回实数域用逆Z变换就可以了。</p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>OK，有了思路之后看一下具体怎么做。数列是“1,1,1,0,-1,0,1,0,-1,0…”，看一下后面循环的部分是-1,0,1,0,-1,…这种循环，那么是对应哪个函数的展开呢？用OEIS查一下，得到<code>A056594</code><sup><a href="#fn_3" id="reffn_3">3</a></sup>：Periodic sequence 1,0,-1,0…;expansion of <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>1</mn><mo>+</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{1+x^2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.845108em;"></span><span class="strut bottom" style="height:1.2484389999999999em;vertical-align:-0.403331em;"></span><span class="base textstyle uncramped"><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">1</span><span class="mbin">+</span><span class="mord"><span class="mord mathit">x</span><span class="vlist"><span style="top:-0.289em;margin-right:0.07142857142857144em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></p>
+<figure class="highlight mma"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CoefficientList</span>[<span class="keyword">Series</span>[(<span class="number">1</span> + x^<span class="number">2</span>)^(<span class="number">-1</span>), &#123;x, 0, 12&#125;], x]</span><br></pre></td></tr></table></figure>
+<p>得到的系数的Array如下：<br><figure class="highlight mma"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;1, 0, -1, 0, 1, 0, -1, 0, 1, 0, -1, 0, 1&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当然，正确的做法是用泰勒展开<sup><a href="#fn_4" id="reffn_4">4</a></sup></p>
+<p>利用生成函数的相关的知识<sup><a href="#fn_5" id="reffn_5">5</a></sup>，和前两项拼一下:<br><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mi>g</mi></mrow><mo>(</mo><mi>z</mi><mo>)</mo><mo>=</mo><mn>2</mn><mo>+</mo><mi>z</mi><mo>−</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>1</mn><mo>+</mo><msup><mi>z</mi><mn>2</mn></msup></mrow></mfrac><mo>=</mo><mfrac><mrow><msup><mi>z</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn><msup><mi>z</mi><mn>2</mn></msup><mo>+</mo><mi>z</mi><mo>+</mo><mn>1</mn></mrow><mrow><msup><mi>z</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">\mathcal{g}(z) = 2+z-\frac{1}{1+z^2}=\frac{z^3+2 z^2+z+1}{z^2+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.491108em;"></span><span class="strut bottom" style="height:2.260438em;vertical-align:-0.7693300000000001em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">g</span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">2</span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mbin">−</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">1</span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.289em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.289em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathrm">2</span><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span></p>
+<p>由于生成函数和Z变换对应的变量的次数相差一个符号<sup><a href="#fn_6" id="reffn_6">6</a></sup>，我们还需要做一点变换，用$1/z$替换$z$</p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mi mathvariant="script">G</mi></mrow><mo>(</mo><mi>z</mi><mo>)</mo><mo>=</mo><mfrac><mrow><msup><mi>z</mi><mn>3</mn></msup><mo>+</mo><msup><mi>z</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>z</mi><mo>+</mo><mn>1</mn></mrow><mrow><msup><mi>z</mi><mn>3</mn></msup><mo>+</mo><mi>z</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\mathcal{G}(z) = \frac{z^3+z^2+2 z+1}{z^3+z}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.491108em;"></span><span class="strut bottom" style="height:2.260438em;vertical-align:-0.7693300000000001em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord displaystyle textstyle uncramped"><span class="mord mathcal" style="margin-right:0.0593em;">G</span></span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.289em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.04398em;">z</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathrm">2</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span>
+<p>用逆Z变换得到的待求函数：<br><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mi mathvariant="script">F</mi></mrow><mo>(</mo><mi>n</mi><mo>)</mo><mo>=</mo><mn>1</mn><mo>−</mo><mi>θ</mi><mo>(</mo><mi>n</mi><mo>−</mo><mn>2</mn><mo>)</mo><mrow><mo fence="true">(</mo><mn>1</mn><mo>+</mo><mi>cos</mi><mrow><mo fence="true">(</mo><mfrac><mrow><mi>π</mi><mi>n</mi></mrow><mrow><mn>2</mn></mrow></mfrac><mo fence="true">)</mo></mrow><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathcal{F}(n)=1-\theta (n-2)\left(1+\cos \left(\frac{\pi  n}{2}\right)\right)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.15em;"></span><span class="strut bottom" style="height:1.8359999999999999em;vertical-align:-0.686em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord displaystyle textstyle uncramped"><span class="mord mathcal" style="margin-right:0.09931em;">F</span></span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mbin">−</span><span class="mord mathit" style="margin-right:0.02778em;">θ</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">2</span><span class="mclose">)</span><span class="minner displaystyle textstyle uncramped"><span class="style-wrap reset-textstyle textstyle uncramped" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mord mathrm">1</span><span class="mbin">+</span><span class="mop">cos</span><span class="minner displaystyle textstyle uncramped"><span class="style-wrap reset-textstyle textstyle uncramped" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">π</span><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="style-wrap reset-textstyle textstyle uncramped" style="top:0em;"><span class="delimsizing size2">)</span></span></span><span class="style-wrap reset-textstyle textstyle uncramped" style="top:0em;"><span class="delimsizing size2">)</span></span></span></span></span></span></span></p>
+<p>这里的θ(x)具体解释为Heaviside step function<sup><a href="#fn_7" id="reffn_7">7</a></sup>，Mathematica里面的<code>UnitStep</code>和<code>Heaviside</code>有少许区别<sup><a href="#fn_8" id="reffn_8">8</a></sup>，有时也写作H(x)或者𝟙(x)，这个𝟙在YOLO的论文中<sup><a href="#fn_9" id="reffn_9">9</a></sup>也用到了，用于构造损失函数。</p>
+<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>当然，这个方法不仅仅可以构造这个序列对应的函数，我们自己编造一个数列： <code>1,1,1,2,1,0,-1,-2,-1,0,1,2,1,0,-1,-2,-1,0,1,2,1,0,-1,-2,-1</code>，用Mathematica编程来找到最后的函数。</p>
+<figure class="highlight mma"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">seq = &#123;1,1,1,2,1,0,-1,-2,-1,0,1,2,1,0,-1,-2,-1,0,1,2,1,0,-1,-2,-1&#125;</span><br><span class="line">g[z_] = <span class="keyword">FindGeneratingFunction</span>[seq, z]</span><br><span class="line">G[z_] = <span class="keyword">Simplify</span>[ g[z] /. z -&gt; <span class="number">1</span>/z]</span><br><span class="line">f[n_] = <span class="keyword">ExpToTrig</span>[<span class="keyword">FullSimplify</span>[<span class="keyword">ExpToTrig</span>[<span class="keyword">InverseZTransform</span>[G[z], z, n]]]]</span><br></pre></td></tr></table></figure>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>(</mo><mi>z</mi><mo>)</mo><mo>=</mo><mfrac><mrow><msup><mi>z</mi><mn>5</mn></msup><mo>+</mo><mn>2</mn><msup><mi>z</mi><mn>4</mn></msup><mo>+</mo><mn>2</mn><msup><mi>z</mi><mn>3</mn></msup><mo>+</mo><msup><mi>z</mi><mn>2</mn></msup><mo>+</mo><mi>z</mi><mo>+</mo><mn>1</mn></mrow><mrow><msup><mi>z</mi><mn>4</mn></msup><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">g(z)=\frac{z^5+2 z^4+2 z^3+z^2+z+1}{z^4+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.491108em;"></span><span class="strut bottom" style="height:2.260438em;vertical-align:-0.7693300000000001em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.289em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">4</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathrm">2</span><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">4</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathrm">2</span><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>G</mi><mo>(</mo><mi>z</mi><mo>)</mo><mo>=</mo><mfrac><mrow><msup><mi>z</mi><mn>5</mn></msup><mo>+</mo><msup><mi>z</mi><mn>4</mn></msup><mo>+</mo><msup><mi>z</mi><mn>3</mn></msup><mo>+</mo><mn>2</mn><msup><mi>z</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><mi>z</mi><mo>+</mo><mn>1</mn></mrow><mrow><msup><mi>z</mi><mn>5</mn></msup><mo>+</mo><mi>z</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">G(z)=\frac{z^5+z^4+z^3+2 z^2+2 z+1}{z^5+z}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.491108em;"></span><span class="strut bottom" style="height:2.260438em;vertical-align:-0.7693300000000001em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit">G</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.289em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.04398em;">z</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">4</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathrm">2</span><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathrm">2</span><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>=</mo><mrow><mo fence="true">{</mo><mtable><mtr><mtd><mrow><mn>1</mn></mrow></mtd><mtd><mrow><mtext><mtext> </mtext><mi mathvariant="normal">i</mi><mi mathvariant="normal">f</mi><mtext> </mtext></mtext><mi>n</mi><mo>&lt;</mo><mn>2</mn></mrow></mtd></mtr><mtr><mtd><mrow><mo>−</mo><msup><mi>e</mi><mrow><mi>i</mi><mi>π</mi><mi>n</mi></mrow></msup><mrow><mo fence="true">(</mo><mrow><mo fence="true">(</mo><msqrt><mrow><mn>2</mn></mrow></msqrt><mo>+</mo><mn>1</mn><mo fence="true">)</mo></mrow><mi>sin</mi><mrow><mo fence="true">(</mo><mfrac><mrow><mi>π</mi><mi>n</mi></mrow><mrow><mn>2</mn></mrow></mfrac><mo fence="true">)</mo></mrow><mo>+</mo><mn>1</mn><mo fence="true">)</mo></mrow><mrow><mo fence="true">(</mo><mi>cos</mi><mrow><mo fence="true">(</mo><mfrac><mrow><mi>π</mi><mi>n</mi></mrow><mrow><mn>4</mn></mrow></mfrac><mo fence="true">)</mo></mrow><mo>−</mo><mi>sin</mi><mrow><mo fence="true">(</mo><mfrac><mrow><mi>π</mi><mi>n</mi></mrow><mrow><mn>4</mn></mrow></mfrac><mo fence="true">)</mo></mrow><mo fence="true">)</mo></mrow></mrow></mtd><mtd><mrow><mtext><mtext> </mtext><mi mathvariant="normal">e</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">e</mi><mtext> </mtext></mtext></mrow></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">f(n)=\begin{cases}
+1 &amp;  \text{ if } n&lt;2 \\
+-e^{i \pi  n} \left(\left(\sqrt{2}+1\right) \sin \left(\frac{\pi  n}{2}\right)+1\right) \left(\cos \left(\frac{\pi  n}{4}\right)-\sin \left(\frac{\pi  n}{4}\right)\right)  &amp; \text{ else }
+\end{cases}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.888em;"></span><span class="strut bottom" style="height:3.276em;vertical-align:-1.388em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">n</span><span class="mclose">)</span><span class="mrel">=</span><span class="minner displaystyle textstyle uncramped"><span class="style-wrap reset-textstyle textstyle uncramped" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist"><span style="top:-0.8799999999999999em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord mathrm">1</span></span></span><span style="top:0.7019999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord">−</span><span class="mord"><span class="mord mathit">e</span><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.03588em;">π</span><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="minner displaystyle textstyle uncramped"><span class="style-wrap reset-textstyle textstyle uncramped" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="minner displaystyle textstyle uncramped"><span class="style-wrap reset-textstyle textstyle uncramped" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="sqrt mord"><span class="sqrt-sign" style="top:-0.11609500000000006em;"><span class="style-wrap reset-textstyle textstyle uncramped">√</span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="mord displaystyle textstyle cramped"><span class="mord mathrm">2</span></span></span><span style="top:-0.8760950000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathrm">1</span><span class="style-wrap reset-textstyle textstyle uncramped" style="top:0em;"><span class="delimsizing size2">)</span></span></span><span class="mop">sin</span><span class="minner displaystyle textstyle uncramped"><span class="style-wrap reset-textstyle textstyle uncramped" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">π</span><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="style-wrap reset-textstyle textstyle uncramped" style="top:0em;"><span class="delimsizing size2">)</span></span></span><span class="mbin">+</span><span class="mord mathrm">1</span><span class="style-wrap reset-textstyle textstyle uncramped" style="top:0em;"><span class="delimsizing size2">)</span></span></span><span class="minner displaystyle textstyle uncramped"><span class="style-wrap reset-textstyle textstyle uncramped" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mop">cos</span><span class="minner displaystyle textstyle uncramped"><span class="style-wrap reset-textstyle textstyle uncramped" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">4</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">π</span><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="style-wrap reset-textstyle textstyle uncramped" style="top:0em;"><span class="delimsizing size2">)</span></span></span><span class="mbin">−</span><span class="mop">sin</span><span class="minner displaystyle textstyle uncramped"><span class="style-wrap reset-textstyle textstyle uncramped" style="top:0em;"><span class="delimsizing size2">(</span></span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">4</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">π</span><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="style-wrap reset-textstyle textstyle uncramped" style="top:0em;"><span class="delimsizing size2">)</span></span></span><span class="style-wrap reset-textstyle textstyle uncramped" style="top:0em;"><span class="delimsizing size2">)</span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span><span class="arraycolsep" style="width:1em;"></span><span class="col-align-l"><span class="vlist"><span style="top:-0.8799999999999999em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="mord displaystyle textstyle uncramped"><span class="text mord displaystyle textstyle uncramped"><span class="mord mspace"> </span><span class="mord mathrm">i</span><span class="mord mathrm" style="margin-right:0.07778em;">f</span><span class="mord mspace"> </span></span><span class="mord mathit">n</span><span class="mrel">&lt;</span><span class="mord mathrm">2</span></span></span><span style="top:0.7019999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="mord displaystyle textstyle uncramped"><span class="text mord displaystyle textstyle uncramped"><span class="mord mspace"> </span><span class="mord mathrm">e</span><span class="mord mathrm">l</span><span class="mord mathrm">s</span><span class="mord mathrm">e</span><span class="mord mspace"> </span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></span>
+<p>这个函数是复函数，下面是一些可视化</p>
+<figure class="highlight mma"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DiscretePlot</span>[f[n], &#123;n, 0, 20&#125;]</span><br><span class="line"><span class="keyword">ParametricPlot</span>[&#123;Re[f[x]], Im[f[x]]&#125;, &#123;x, 0, 4 Pi&#125;]</span><br><span class="line"><span class="keyword">Plot</span>[&#123;Re[f[x]], Im[f[x]]&#125;, &#123;x, 0, 20&#125;, <span class="keyword">PlotRange</span> -&gt; <span class="keyword">All</span>, <span class="keyword">PlotLegends</span> -&gt; &#123;"Re f(x)", "Im f(x)"&#125;]</span><br><span class="line">rfPoints = <span class="keyword">Table</span>[&#123;x, Re[f[x]], Im[f[x]]&#125;, &#123;x, 0, 20&#125;]</span><br><span class="line"><span class="keyword">Show</span>[</span><br><span class="line"> <span class="keyword">ParametricPlot3D</span>[&#123;x, Re[f[x]], Im[f[x]]&#125;, &#123;x, 0, 20&#125;,</span><br><span class="line">  <span class="keyword">PlotRange</span> -&gt; <span class="keyword">All</span>, <span class="keyword">ViewVertical</span> -&gt; &#123;0, 1, 0&#125;, <span class="keyword">BoxRatios</span> -&gt; &#123;2, 1, 1&#125;,</span><br><span class="line">   <span class="keyword">ViewPoint</span> -&gt; &#123;2, 2, 10&#125;],</span><br><span class="line"> <span class="keyword">Graphics3D</span>[&#123;PointSize[0.01], Red, Point[rfPoints]&#125;],</span><br><span class="line"> <span class="keyword">ImageSize</span> -&gt; <span class="keyword">Large</span></span><br><span class="line"> ]</span><br></pre></td></tr></table></figure>
+<p>函数的离散值（只对应整数点）：<br><img src="/2017/11/19/sequencetofunction/1.png" title="离散函数值"><br>函数在复平面的取值图像：<br><img src="/2017/11/19/sequencetofunction/2.png" title="函数在复平面的取值"><br>分别绘制出函数的实部和虚部的图像：<br><img src="/2017/11/19/sequencetofunction/3.png" title="函数的取值分实部和虚部"><br>函数在复空间的取值，红色的点是整数点，对应第一张离散值的图：<br><img src="/2017/11/19/sequencetofunction/4.png" title="函数在复空间的取值"></p>
+<blockquote id="fn_1">
+<sup>1</sup>. <a href="https://www.zhihu.com/question/55950733" target="_blank" rel="noopener">https://www.zhihu.com/question/55950733</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_2">
+<sup>2</sup>. <a href="https://en.wikipedia.org/wiki/Generating_function" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Generating_function</a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_3">
+<sup>3</sup>. <a href="https://oeis.org/search?q=1%2C0%2C-1%2C0%2C1%2C0%2C-1%2C0%2C1" target="_blank" rel="noopener">https://oeis.org/search?q=1%2C0%2C-1%2C0%2C1%2C0%2C-1%2C0%2C1</a><a href="#reffn_3" title="Jump back to footnote [3] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_4">
+<sup>4</sup>. <a href="https://en.wikipedia.org/wiki/Taylor_series" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Taylor_series</a><a href="#reffn_4" title="Jump back to footnote [4] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_5">
+<sup>5</sup>. <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2005/readings/ln11.pdf" target="_blank" rel="noopener">https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2005/readings/ln11.pdf</a><a href="#reffn_5" title="Jump back to footnote [5] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_6">
+<sup>6</sup>. <a href="https://math.stackexchange.com/questions/137178/why-do-engineers-use-the-z-transform-and-mathematicians-use-generating-functions" target="_blank" rel="noopener">https://math.stackexchange.com/questions/137178/why-do-engineers-use-the-z-transform-and-mathematicians-use-generating-functions</a><a href="#reffn_6" title="Jump back to footnote [6] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_7">
+<sup>7</sup>. <a href="https://en.wikipedia.org/wiki/Heaviside_step_function" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Heaviside_step_function</a><a href="#reffn_7" title="Jump back to footnote [7] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_8">
+<sup>8</sup>. <a href="http://reference.wolfram.com/search/?q=Heaviside" target="_blank" rel="noopener">http://reference.wolfram.com/search/?q=Heaviside</a><a href="#reffn_8" title="Jump back to footnote [8] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_9">
+<sup>9</sup>. <a href="https://arxiv.org/abs/1506.02640" target="_blank" rel="noopener">https://arxiv.org/abs/1506.02640</a><a href="#reffn_9" title="Jump back to footnote [9] in the text."> &#8617;</a>
+</blockquote>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/walsvid">Projects</a></li>
+         
+          <li><a href="/atom.xml">RSS</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-number">1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解法"><span class="toc-number">2.</span> <span class="toc-text">解法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思考"><span class="toc-number">3.</span> <span class="toc-text">思考</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://walsvid.github.io/2017/11/19/sequencetofunction/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://walsvid.github.io/2017/11/19/sequencetofunction/&text=无穷序列对应函数的一种寻找方法"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://walsvid.github.io/2017/11/19/sequencetofunction/&title=无穷序列对应函数的一种寻找方法"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://walsvid.github.io/2017/11/19/sequencetofunction/&is_video=false&description=无穷序列对应函数的一种寻找方法"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=无穷序列对应函数的一种寻找方法&body=Check out this article: http://walsvid.github.io/2017/11/19/sequencetofunction/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://walsvid.github.io/2017/11/19/sequencetofunction/&title=无穷序列对应函数的一种寻找方法"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://walsvid.github.io/2017/11/19/sequencetofunction/&title=无穷序列对应函数的一种寻找方法"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://walsvid.github.io/2017/11/19/sequencetofunction/&title=无穷序列对应函数的一种寻找方法"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://walsvid.github.io/2017/11/19/sequencetofunction/&title=无穷序列对应函数的一种寻找方法"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://walsvid.github.io/2017/11/19/sequencetofunction/&name=无穷序列对应函数的一种寻找方法&description=&lt;p&gt;问题的起源是知乎上有人提了一个问题&lt;sup&gt;&lt;a href=&#34;#fn_1&#34; id=&#34;reffn_1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;「除了靠猜和不优雅的构造，如何函数化特殊数列？」题主提出的数列是：&lt;code&gt;1,1,1,0,-1,0,1,0,-1,0…&lt;/code&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 Walsvid
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/walsvid">Projects</a></li>
+         
+          <li><a href="/atom.xml">RSS</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
