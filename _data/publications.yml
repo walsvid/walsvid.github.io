@@ -1,0 +1,89 @@
+main:
+
+  - title: "OHTA: One-shot Hand Avatar via Data-driven Implicit Priors"
+    authors: Xiaozheng Zheng*, <strong>Chao Wen</strong>*, Zhuo Su, Zeran Xu, Zhaohu Li, Yang Zhao, Zhou Xue
+    conference_short: CVPR
+    conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2024.
+    pdf: https://arxiv.org/pdf/2402.18969
+    code: https://github.com/zxz267/OHTA
+    page: https://zxz267.github.io/OHTA/
+    image: ./assets/pub/ohta.png
+
+  - title: "Joint2Human: High-quality 3D Human Generation via Compact Spherical Embedding of 3D Joints"
+    authors: Muxin Zhang, Qiao Feng, Zhuo Su, <strong>Chao Wen</strong>, Zhou Xue, Kun Li
+    conference_short: CVPR
+    conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2024.
+    pdf: https://arxiv.org/pdf/2312.08591
+    code: https://github.com/albyms/Joint2Human
+    page: https://cic.tju.edu.cn/faculty/likun/projects/Joint2Human/index.html
+    image: ./assets/pub/joint2human.png
+  
+  - title: "Decoupled Iterative Refinement Framework for Interacting Hands Reconstruction from a Single RGB Image"
+    authors: Pengfei Ren, <strong>Chao Wen</strong>, Xiaozheng Zheng, Zhou Xue, Haifeng Sun, Qi Qi, Jingyu Wang, Jianxin Liao
+    conference_short: ICCV
+    conference: IEEE/CVF International Conference on Computer Vision <strong>(ICCV)</strong>, 2023.
+    pdf: https://openaccess.thecvf.com/content/ICCV2023/papers/Ren_Decoupled_Iterative_Refinement_Framework_for_Interacting_Hands_Reconstruction_from_a_ICCV_2023_paper.pdf
+    code: https://github.com/PengfeiRen96/DIR
+    page: https://pengfeiren96.github.io/DIR/
+    image: ./assets/pub/dir.png
+    notes: Oral
+
+  - title: "HaMuCo: Hand Pose Estimation via Multiview Collaborative Self-Supervised Learning"
+    authors: Xiaozheng Zheng*, <strong>Chao Wen</strong>*, Zhou Xue, Pengfei Ren, Jingyu Wang
+    conference_short: ICCV
+    conference: IEEE/CVF International Conference on Computer Vision <strong>(ICCV)</strong>, 2023.
+    pdf: https://openaccess.thecvf.com/content/ICCV2023/papers/Zheng_HaMuCo_Hand_Pose_Estimation_via_Multiview_Collaborative_Self-Supervised_Learning_ICCV_2023_paper.pdf
+    code: https://github.com/zxz267/HaMuCo
+    page: https://zxz267.github.io/HaMuCo/
+    image: ./assets/pub/hamuco.png
+
+  - title: "Realistic Full-Body Tracking from Sparse Observations via Joint-Level Modeling"
+    authors: Xiaozheng Zheng*, Zhuo Su*, <strong>Chao Wen</strong>, Zhou Xue, Xiaojie Jin
+    conference_short: ICCV
+    conference: IEEE/CVF International Conference on Computer Vision <strong>(ICCV)</strong>, 2023.
+    pdf: https://openaccess.thecvf.com/content/ICCV2023/papers/Zheng_HaMuCo_Hand_Pose_Estimation_via_Multiview_Collaborative_Self-Supervised_Learning_ICCV_2023_paper.pdf
+    code: https://github.com/zxz267/AvatarJLM
+    page: https://zxz267.github.io/AvatarJLM/
+    image: ./assets/pub/avatarjlm.png
+
+  - title: "3D Room Layout Estimation from a Cubemap of Panorama Image via Deep Manhattan Hough Transform"
+    authors: Yining Zhao, <strong>Chao Wen</strong>, Zhou Xue, Yue Gao
+    conference_short: ECCV
+    conference: European Conference on Computer Vision <strong>(ECCV)</strong>, 2022.
+    pdf: https://arxiv.org/pdf/2207.09291
+    code: https://github.com/Starrah/DMH-Net
+    image: ./assets/pub/dmhnet.png
+  
+  - title: "Pixel2Mesh++: 3D Mesh Generation and Refinement from Multi-View Images"
+    authors: <strong>Chao Wen</strong>*, Yinda Zhang*, Chenjie Cao, Zhuwen Li, Xiangyang Xue, Yanwei Fu
+    conference_short: TPAMI
+    conference: IEEE Transactions on Pattern Analysis and Machine Intelligence <strong>(TPAMI)</strong>, Volume 45, Number 2, 2022.
+    pdf: https://arxiv.org/pdf/2204.09866
+    code: https://github.com/ewrfcas/Pixel2MeshPlusPlus-MVDISN
+    page: https://ewrfcas.github.io/Pixel2MeshPlusPlus-MVDISN/
+    image: ./assets/pub/p2mppv2.png
+
+  - title: "Neural Pose Transfer by Spatially Adaptive Instance Normalization"
+    authors: Jiashun Wang*, <strong>Chao Wen</strong>*, Yanwei Fu, Haitao Lin, Tianyun Zou, Xiangyang Xue, Yinda Zhang
+    conference_short: CVPR
+    conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2020.
+    pdf: https://openaccess.thecvf.com/content_CVPR_2020/papers/Wang_Neural_Pose_Transfer_by_Spatially_Adaptive_Instance_Normalization_CVPR_2020_paper.pdf
+    code: https://github.com/jiashunwang/Neural-Pose-Transfer
+    image: ./assets/pub/npt.jpg
+  
+  - title: "Pose-Guided Person Image Synthesis in the Non-Iconic Views"
+    authors: Chengming Xu, Yanwei Fu, <strong>Chao Wen</strong>, Ye Pan, Yu-Gang Jiang, Xiangyang Xue
+    conference_short: TIP
+    conference: IEEE Transactions on Image Processing <strong>(TIP)</strong>, Volume 29, 2020.
+    pdf: https://ieeexplore.ieee.org/document/9200521
+    code: https://github.com/chmxu/MR-Net
+    image: ./assets/pub/iconic.png
+
+  - title: "Pixel2Mesh++: Multi-View 3D Mesh Generation via Deformation"
+    authors: Chao Wen, Yinda Zhang, Zhuwen Li, Yanwei Fu
+    conference_short: ICCV
+    conference: IEEE/CVF International Conference on Computer Vision <strong>(ICCV)</strong>, 2019.
+    pdf: https://openaccess.thecvf.com/content_ICCV_2019/papers/Wen_Pixel2Mesh_Multi-View_3D_Mesh_Generation_via_Deformation_ICCV_2019_paper.pdf
+    code: https://github.com/walsvid/Pixel2MeshPlusPlus
+    page: https://walsvid.github.io/Pixel2MeshPlusPlus/
+    image: ./assets/pub/p2mpp.png

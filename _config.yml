@@ -1,0 +1,49 @@
+# Basic Information 
+title: Chao Wen
+# position: Master
+affiliation: ByteDance
+affiliation_link: https://www.bytedance.com/
+# affiliation_logo: ./assets/img/
+email: walsvid (at) gmail.com
+email2: wenchao.w (at) bytedance.com
+
+# Search Engine Optimization (SEO)
+keywords: chao wen, wen chao, wenchao, chaowen
+canonical: https://walsvid.github.io
+description: Chao Wen is a research and development engineer at ByteDance. His research lies in 3D reconstruction, neural rendering, and digital human.
+
+# The option is used to enable the Johns Hopkins template.
+enable_hopkins_logo: false
+
+# The option is used to show the last update time.
+enable_last_update: true
+
+# Links
+link_type: icon #text/icon
+google_scholar: https://scholar.google.com/citations?user=v8TFZI4AAAAJ
+github_link: https://github.com/walsvid/
+linkedin: https://www.linkedin.com/in/chaowen/
+# twitter: #
+
+# Images 
+avatar: ./assets/img/chaowen_uestc.png
+favicon: ./assets/img/favicon.png
+favicon_dark: ./assets/img/favicon-dark.png
+
+# Footnotes
+footnote: Powered by Jekyll and Minimal Light theme.
+footnote_link: https://github.com/yaoyao-liu/minimal-light
+
+# Analytics
+# Please remove the following lines about analytics services if you fork my project. 
+# Otherwise, the analytics information of your website will be recorded to my ClustrMaps accounts.
+# clustrmaps_id: CJD8XwsJhSyQ6sbsU-Gw0cNcUlbah7KW3xvHN2QlwW0
+
+# The following files will be removed from the generated website.
+exclude:
+  - build.sh
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
+  - CNAME
