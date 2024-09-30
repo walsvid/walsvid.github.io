@@ -80,7 +80,7 @@ main:
     image: ./assets/pub/iconic.png
 
   - title: "Pixel2Mesh++: Multi-View 3D Mesh Generation via Deformation"
-    authors: Chao Wen, Yinda Zhang, Zhuwen Li, Yanwei Fu
+    authors: <strong>Chao Wen</strong>, Yinda Zhang, Zhuwen Li, Yanwei Fu
     conference_short: ICCV
     conference: IEEE/CVF International Conference on Computer Vision <strong>(ICCV)</strong>, 2019.
     pdf: https://openaccess.thecvf.com/content_ICCV_2019/papers/Wen_Pixel2Mesh_Multi-View_3D_Mesh_Generation_via_Deformation_ICCV_2019_paper.pdf
