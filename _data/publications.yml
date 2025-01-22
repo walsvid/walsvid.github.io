@@ -1,6 +1,15 @@
 main:
 
   - title: "OHTA: One-shot Hand Avatar via Data-driven Implicit Priors"
+    authors: Xiaozheng Zheng, <strong>Chao Wen</strong>✉, Zhaohu Li, Weiyi Zhang, Zhuo Su, Xu Chang, Yang Zhao, Zheng Lv, Xiaoyuan Zhang, Yongjie Zhang, Guidong Wang, Lan Xu
+    conference_short: 3DV
+    conference: International Conference on 3D Vision <strong>(3DV)</strong>, 2025.
+    pdf: https://arxiv.org/pdf/2408.06019
+    code: https://headgap.github.io/
+    page: https://headgap.github.io/
+    image: ./assets/pub/head-gap.jpg
+
+  - title: "OHTA: One-shot Hand Avatar Generation via Data-driven Implicit Priors"
     authors: Xiaozheng Zheng*, <strong>Chao Wen</strong>*, Zhuo Su, Zeran Xu, Zhaohu Li, Yang Zhao, Zhou Xue
     conference_short: CVPR
     conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2024.
